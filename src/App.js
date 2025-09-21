@@ -1,24 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
+import Tile from "./Tile";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    const board = Array(9).fill('x');
+    console.log(board);
+    return (
+        <>
+            <h1>Tic Tac Toe</h1>
+            {console.log(board)}
+            <div className="App" style={{display: "grid", gridTemplateColumns: "auto auto auto"}}>
+                {board.map((value, index) => (
+                    <Tile value={value} key={index} />
+                ))}
+            </div>
+        </>
+
   );
 }
 

@@ -21,15 +21,20 @@ code {
     monospace;
 }
 .clickedO{
-    background-color: #FE6B8B;
+    color: #FE6B8B !important;
+}
+.clickedO:hover{
+    color: #ffffff !important;
+    border: none;
 }
 .clickedX{
-    background-color: #FF8E53;
+    color: #FF8E53 !important;
 }
-.unclicked{
-    background-color: #FF8E53 !important;
+.clickedX:hover{
+    color: #ffffff !important;
+    border:  none;
+}
 
-}
 .clicked {
     background: linear-gradient(45deg, #FE6B8B 20%,  #FF8E53 80%);
 }

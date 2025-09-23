@@ -1,7 +1,8 @@
 const initialState={
     board: Array(9).fill(null),
     isOTurn: false,
-    winner: null
+    winner: null,
+    winnerColor: '#000000',
 
 }
 export const gameReducer = (state = initialState, action) => {
@@ -12,7 +13,7 @@ export const gameReducer = (state = initialState, action) => {
                 let player;
                 if ( state.isOTurn === false ) player = 'X'
                 else player = 'O';
-                console.log(player)
+
                 newBoard[action.payload]=player;
                 return {
                     ...state,
@@ -27,18 +28,21 @@ export const gameReducer = (state = initialState, action) => {
         }
         case 'CHECKWINNER':{
             const winners = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
-            let win='';
+            let win= null;
+            let color = '#000000';
             for (let i= 0; i < winners.length; i++) {
                 const a = state.board[winners[i][0]];
                 const b = state.board[winners[i][1]];
                 const c = state.board[winners[i][2]];
                 if (a===b && b===c && a!==null) {
                     win = 'The winner is: '+ a;
+                    color = (a==='X') ? '#FE6B8B' : '#FF8E53';
                 }
             }
             return {
                 ...state,
-                winner: win}
+                winner: win,
+                winnerColor: color,}
         }
         case 'RESTART':{
 
